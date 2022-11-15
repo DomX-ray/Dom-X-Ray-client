@@ -11,7 +11,7 @@ module.exports = merge(commonConfiguration, {
   mode: MODE,
   devtool: "source-map",
   devServer: {
-    static: { directory: path.join(__dirname, "./dist") },
+    static: { directory: path.join(__dirname, "dist") },
     compress: true,
     hot: true,
     port: portFinderSync.getPort(PORT),
