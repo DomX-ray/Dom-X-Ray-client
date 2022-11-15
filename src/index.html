@@ -4,11 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <title>DomX-ray</title>
-    <link rel="stylesheet" href="style.scss" />
+    <script src="app.js"></script>
   </head>
   <body>
-    <h1>DomX-ray</h1>
-    <script src="app.js"></script>
+    <main>
+      <div class="title-box">
+        <div>
+          <img
+            src="./assets/images/tree.png"
+            width="150"
+            height="160"
+            alt="logo"
+          />
+        </div>
+        <h1>DomX-ray</h1>
+      </div>
+      <form>
+        <input
+          class="search"
+          type="url"
+          autofocus="autoFocus"
+          placeholder="https://www.google.com"
+          autocomplete="off"
+          required
+        />
+      </form>
+    </main>
   </body>
 </html>
