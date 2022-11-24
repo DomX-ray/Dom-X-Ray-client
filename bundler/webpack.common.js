@@ -24,7 +24,7 @@ module.exports = {
       minify: true,
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "style.css",
     }),
   ],
   module: {
