@@ -16,14 +16,5 @@ module.exports = {
     "no-trailing-spaces": 0,
     quotes: ["error", "double"],
     ignorePatterns: ["**/node_modules", "**/dist"],
-    "max-len": [
-      "error",
-      {
-        code: 80,
-        ignoreUrls: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-      },
-    ],
   },
 };

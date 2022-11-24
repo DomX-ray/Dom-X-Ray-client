@@ -6,5 +6,5 @@
     "source.fixAll.eslint": true
   },
   "prettier.useEditorConfig": true,
-  "prettier.enable": true,
+  "prettier.enable": true
 }
