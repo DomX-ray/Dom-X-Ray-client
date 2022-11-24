@@ -1,4 +1,4 @@
-main {
+.home-container {
   display: flex;
   position: fixed;
   justify-content: center;
@@ -14,7 +14,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .logoImage {
@@ -23,6 +23,7 @@ main {
 
 h1 {
   text-align: center;
+  padding-left: 2vh;
   font-family: "Josefin Slab", serif;
   font-style: normal;
   font-size: 150px;
@@ -32,26 +33,21 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 400px;
-  width: 50vw;
-  height: 7vh;
 }
 
 .search {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 8px rgba(167, 216, 28, 0.3);
-  width: 100%;
+  border: solid 8px rgba(194, 225, 109, 0.461);
+  width: 40vw;
+  min-width: 500px;
   height: 100%;
   padding: 10px;
   font-size: 30px;
 
   &:focus {
     outline: none;
-  }
-
-  &:hover {
     border: solid 8px rgba(167, 216, 28, 1);
   }
 }
