@@ -1,0 +1,53 @@
+.home-container {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.title-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logoImage {
+  display: flex;
+}
+
+h1 {
+  text-align: center;
+  padding-left: 2vh;
+  font-family: "Josefin Slab", serif;
+  font-style: normal;
+  font-size: 150px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 8px rgba(194, 225, 109, 0.461);
+  width: 40vw;
+  min-width: 500px;
+  height: 100%;
+  padding: 10px;
+  font-size: 30px;
+
+  &:focus {
+    outline: none;
+    border: solid 8px rgba(167, 216, 28, 1);
+  }
+}
