@@ -1,9 +1,9 @@
 import { getParsedData } from "../../util/api";
 import renderTree from "./tree";
 import collapsibleTag from "./toggle";
+import { renderHtml } from "../../render";
 
 const SubTemplate = () => {
-  // todo: 홈페이지 input쪽 참고해서 수정하기
   return `
   <header>
     <div class="header-container">
@@ -12,11 +12,32 @@ const SubTemplate = () => {
     </svg>
       <h1 class="title">Dom X-ray</h1>
       <form class="search-form-box">
-        <input class=".submit-input" id="searchUrl" name="searchUrl" value="" placeholder="https://www.google.com" required/>
+        <input type="url" class="subPage-input" name="searchUrl" value="" autocomplete="off" required />
+        <button type="click" class="submit-input" route="/visualization"></button>
       </form>
     </div>
   </header>
   <div class="main-container">
+    <div class="loader-container">
+      <div class="loader">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+          <><rect x="0" y="10" width="4" height="10" fill="#333" opacity="0.2">
+            <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+          </rect><rect x="8" y="10" width="4" height="10" fill="#333" opacity="0.2">
+            <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.8s" repeatCount="indefinite" />
+          </rect><rect x="16" y="10" width="4" height="10" fill="#333" opacity="0.2">
+            <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+          </rect></>
+        </svg>
+      </div>
+    </div>
     <div class="control-button-container">
       <button class="expand-button">
         <svg
@@ -110,10 +131,25 @@ const SubTemplate = () => {
   </div>`;
 };
 
+const showSpinner = () => {
+  document.getElementsByClassName("loader")[0].style.display = "inline-block";
+};
+
+const hideSpinner = () => {
+  document.getElementsByClassName("loader")[0].style.display = "none";
+};
+
 const SubScript = async () => {
   const { route, searchUrl } = window.history.state;
 
+  showSpinner();
+
   const data = await getParsedData(route, searchUrl);
+
+  if (data) {
+    hideSpinner();
+  }
+
   renderTree(data);
   collapsibleTag();
 };
