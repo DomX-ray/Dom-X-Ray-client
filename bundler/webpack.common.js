@@ -18,9 +18,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "..", "public", "index.html"),
-      meta: {
-        viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0",
-      },
       minify: true,
     }),
     new MiniCssExtractPlugin({
