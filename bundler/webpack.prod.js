@@ -1,6 +1,7 @@
 const { merge } = require("webpack-merge");
-const commonConfiguration = require("./webpack.common.js");
 const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const commonConfiguration = require("./webpack.common.js");
 
 const MODE = process.env.NODE_ENV || "production";
 

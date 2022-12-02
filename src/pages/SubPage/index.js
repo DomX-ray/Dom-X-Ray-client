@@ -1,62 +1,65 @@
 import { getParsedData } from "../../util/api";
 import renderTree from "./tree";
-import collapsibleTag from "./toggle";
 
 const SubTemplate = () => {
-  // todo: 홈페이지 input쪽 참고해서 수정하기
   return `
   <header>
     <div class="header-container">
-    <svg width="37" height="46" viewBox="0 0 37 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21.4806 46H15.5708V37.4325H0L9.7125 21.6775H4.83056L18.5 0L32.1694 21.6775H27.3389L37 37.4325H21.4806V46ZM5.96111 33.9825H15.6736H11.0486H25.9514H21.3778H31.0903H5.96111ZM5.96111 33.9825H31.0903L21.3778 18.2275H25.9514L18.5 6.3825L11.0486 18.2275H15.6736L5.96111 33.9825Z" fill="#A7D81C"/>
-    </svg>
+      <svg width="50" height="60" viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M29.0278 60H21.0417V48.825H0L13.125 28.275H6.52778L25 0L43.4722 28.275H36.9444L50 48.825H29.0278V60ZM8.05556 44.325H21.1806H14.9306H35.0694H28.8889H42.0139H8.05556ZM8.05556 44.325H42.0139L28.8889 23.775H35.0694L25 8.325L14.9306 23.775H21.1806L8.05556 44.325Z" fill="#A7D81C"/>
+      </svg>
       <h1 class="title">Dom X-ray</h1>
       <form class="search-form-box">
-        <input class=".submit-input" id="searchUrl" name="searchUrl" value="" placeholder="https://www.google.com" required/>
+        <input type="url" class="subPage-input" name="searchUrl" value="" placeholder="Search Url" autocomplete="off" required />
+        <button type="click" class="submit-input" route="/visualization"></button>
       </form>
     </div>
   </header>
-  <div class="main-container">
+  <div class="sub-main-container">
+    <div class="loader-container">
+      <div class="loader">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="60px" height="75px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+          <><rect x="0" y="10" width="4" height="10" fill="#333" opacity="0.2">
+            <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s" repeatCount="indefinite" />
+          </rect><rect x="8" y="10" width="4" height="10" fill="#333" opacity="0.2">
+            <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.8s" repeatCount="indefinite" />
+          </rect><rect x="16" y="10" width="4" height="10" fill="#333" opacity="0.2">
+            <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+            <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+          </rect></>
+        </svg>
+      </div>
+    </div>
     <div class="control-button-container">
       <button class="expand-button">
-        <svg
-          width="30"
-          height="30"
-          viewBox="0 0 30 30"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18.75 6.24998L6.24998 18.75M9.37498 22.9166H15.625C20.8333 22.9166 22.9166 20.8333 22.9166 15.625V9.37498C22.9166 4.16665 20.8333 2.08331 15.625 2.08331H9.37498C4.16665 2.08331 2.08331 4.16665 2.08331 9.37498V15.625C2.08331 20.8333 4.16665 22.9166 9.37498 22.9166Z"
-            stroke="black"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M18.75 10.4167V6.25H14.5833M6.25 14.5833V18.75H10.4167"
-            stroke="black"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_60_56)">
+          <path d="M27.0109 7.98914L7.98914 27.0109M12.7446 33.3515H22.2554C30.1812 33.3515 33.3515 30.1812 33.3515 22.2554V12.7446C33.3515 4.81885 30.1812 1.64856 22.2554 1.64856H12.7446C4.81885 1.64856 1.64856 4.81885 1.64856 12.7446V22.2554C1.64856 30.1812 4.81885 33.3515 12.7446 33.3515Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M27.0109 14.3297V7.98914H20.6703M7.98914 20.6703V27.0109H14.3297" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_60_56">
+          <rect width="35" height="35" fill="white"/>
+          </clipPath>
+          </defs>
         </svg>
       </button>
-      <button class="collapse-button" onclick="collapseAll()">
-        <svg
-          width="30"
-          height="30"
-          viewBox="0 0 30 30"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8.33331 12.5H16.6666M9.37498 22.9166H15.625C20.8333 22.9166 22.9166 20.8333 22.9166 15.625V9.37498C22.9166 4.16665 20.8333 2.08331 15.625 2.08331H9.37498C4.16665 2.08331 2.08331 4.16665 2.08331 9.37498V15.625C2.08331 20.8333 4.16665 22.9166 9.37498 22.9166Z"
-            stroke="black"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+      <button class="collapse-button">
+        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_60_59)">
+          <path d="M11.1594 17.5H23.8406M12.7446 33.3515H22.2554C30.1812 33.3515 33.3515 30.1812 33.3515 22.2554V12.7446C33.3515 4.81885 30.1812 1.64856 22.2554 1.64856H12.7446C4.81885 1.64856 1.64856 4.81885 1.64856 12.7446V22.2554C1.64856 30.1812 4.81885 33.3515 12.7446 33.3515Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_60_59">
+          <rect width="35" height="35" fill="white"/>
+          </clipPath>
+          </defs>
         </svg>
       </button>
     </div>
@@ -69,7 +72,7 @@ const SubTemplate = () => {
         </li>
         <li>
           <span class="tag-info-item">Id</span>
-          <span class="tag-info-box"></span>
+          <span class="tag-info-box" id="tagId"></span>
         </li>
         <li>
           <span class="tag-info-item">Contents</span>
@@ -77,45 +80,50 @@ const SubTemplate = () => {
         </li>
         <li>
           <span class="tag-info-item">Children</span>
-          <span class="tag-info-box"></span>
-        </li>
-        <li>
-          <span class="tag-info-item">Depth</span>
-          <span class="tag-info-box"></span>
+          <span class="tag-info-box" id="childrenCount"></span>
         </li>
         <li style="display: list-item">
-          <span class="tag-info-item">Class name</span>
-          <button class="tag-info-toggle-box collapsible"></button>
-          <div class="content">
-            <ul>
-              <li>a</li>
+          <details>
+            <summary>Class Name</summary>
+              <li id="className">a</li>
               <li>b</li>
               <li>c</li>
-            </ul>
-          </div>
+          </details>
         </li>
         <li style="display: list-item">
-          <span class="tag-info-item">Attributes</span>
-          <button class="tag-info-toggle-box collapsible"></button>
-          <div class="content">
-            <ul>
-              <li>a</li>
+          <details>
+            <summary>Attributes</summary>
+              <li id="attributes">a</li>
               <li>b</li>
               <li>c</li>
-            </ul>
-          </div>
+          </details>
         </li>
       </ul>
     </div>
   </div>`;
 };
 
+const showSpinner = () => {
+  document.getElementsByClassName("loader")[0].style.display = "inline-block";
+};
+
+const hideSpinner = () => {
+  document.getElementsByClassName("loader")[0].style.display = "none";
+};
+
 const SubScript = async () => {
   const { route, searchUrl } = window.history.state;
 
+  showSpinner();
+
   const data = await getParsedData(route, searchUrl);
+
+  if (data) {
+    hideSpinner();
+  }
+
   renderTree(data);
-  collapsibleTag();
+  //collapsibleTag();
 };
 
 const SubPage = { template: SubTemplate, script: SubScript };
