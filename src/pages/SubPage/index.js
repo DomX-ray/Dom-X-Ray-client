@@ -76,26 +76,16 @@ const SubTemplate = () => {
         </li>
         <li>
           <span class="tag-info-item">Contents</span>
-          <span class="tag-info-box"></span>
+          <span class="tag-info-box" id="textContent"></span>
         </li>
         <li>
           <span class="tag-info-item">Children</span>
           <span class="tag-info-box" id="childrenCount"></span>
         </li>
         <li style="display: list-item">
-          <details>
+          <details id="classToggle">
             <summary>Class Name</summary>
-              <li id="className">a</li>
-              <li>b</li>
-              <li>c</li>
-          </details>
-        </li>
-        <li style="display: list-item">
-          <details>
-            <summary>Attributes</summary>
-              <li id="attributes">a</li>
-              <li>b</li>
-              <li>c</li>
+              <li id="className"></li>
           </details>
         </li>
       </ul>
