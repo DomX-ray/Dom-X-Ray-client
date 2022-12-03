@@ -3,7 +3,7 @@
   "version": "0.0.8",
   "description": "dom tree visualizer",
   "scripts": {
-    "dev": "webpack serve --config ./bundler/webpack.dev.js",
+    "dev": "webpack serve --open --config ./bundler/webpack.dev.js",
     "build": "webpack --config ./bundler/webpack.prod.js"
   },
   "author": "song yi Choi",

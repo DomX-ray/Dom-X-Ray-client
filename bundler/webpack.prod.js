@@ -3,7 +3,7 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const commonConfiguration = require("./webpack.common.js");
 
-const MODE = NODE_ENV || "production";
+const MODE = process.env.NODE_ENV || "production";
 
 module.exports = merge(commonConfiguration, {
   mode: MODE,
