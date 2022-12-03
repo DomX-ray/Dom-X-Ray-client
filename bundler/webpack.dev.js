@@ -5,7 +5,7 @@ const path = require("path");
 const commonConfiguration = require("./webpack.common.js");
 
 const PORT = 8000;
-const MODE = process.env.NODE_ENV || "development";
+const MODE = NODE_ENV || "development";
 
 module.exports = merge(commonConfiguration, {
   mode: MODE,
