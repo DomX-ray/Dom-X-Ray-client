@@ -10,9 +10,8 @@
   2. 어떻게 크롤링할까? Axios vs **Puppeteer**
   3. 어디서 Parsing할까? Client vs **Server** 에서 Parsing
 - [어려움을 겪었던 부분](#어려움을-겪었던-부분)
-  1. Puppeteer를 이용한 Parsing
-  2. Vanilla Javascript 페이지 전환
-  3. Webpack 설정
+  1. Vanilla Javascript 페이지 전환
+  2. Webpack 설정
 - [개선할 부분](#개선할-부분)
 - [프로젝트 소개](#프로젝트-소개)
 - [프로젝트 회고](#프로젝트-회고)
@@ -55,8 +54,6 @@
 
 ## **어려움을 겪었던 부분**
 
-### Puppeteer를 이용한 Parsing
-
 <br />
 
 ### Vanilla Javascript 페이지 전환
@@ -70,6 +67,15 @@ React에서 route를 사용하는 것과 같이, 요소에 route 속성을 직�
 
 지금까지 편하게 써 온 Boilerplate을 안 썼기 때문에, 처음으로 개발 환경 세팅을 해야했습니다. webpack을 직접 설정을 하면서 글로만 봤던 Bundling하는 과정을 깊게 이해할 수 있었습니다. 많은 옵션때문에 초기 세팅이 까다롭게 느껴지기도 했지만, 다행히 Webpack 공식문서가 친절히 작성되어있어서 많은 도움을 받을 수 있었습니다.
 특히 코드를 수정할 때, Webpack에서 에러가 많이 발생해서 어려움을 겪기도 했지만, 오히려 수정한 코드에 영향을 미치는 Webpack 설정을 알 수 있었고, 자세히 이해할 수 있었습니다. 다음 프로젝트에서 다시 Boilerplate를 사용해 개발하더라도 기본으로 제공되는 설정을 수정해서 좀 더 원하는 방향으로 사용할 수 있다는 생각이 들었습니다.
+
+<br />
+
+## **개선할 부분**
+
+- d3를 이용해 tree 구조 시각화
+  - 현재 있는 Zoom In 기능 이외에 Box 내에서만 유저가 원하는 만큼 Zoom Out할 수 있도록 개선
+- tag 정보
+  - tag내 content를 다 보내기 보단, Frontend에서 유저에게 보여주는 만큼만 Parsing해서 response 간소화
 
 <br />
 
