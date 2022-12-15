@@ -28,16 +28,12 @@ https://user-images.githubusercontent.com/95201149/207520427-9b3aad81-9bf3-4e14-
 - 3주차: 기능 개발 마무리 및 배포
 
 ### **기술 스택**
-#### Frontend
-- Vanilla Javascript
-- D3
-- Webpack
-- SCSS
-
-#### Backend
-- Node.js
-- Express
-- Puppeteer
+**Frontend** | **Backend** |
+:-----: | :-----: |
+Vanilla Javascript | Node.js |
+D3 | Express |
+Webpack | Puppeteer |
+SCSS | |
 
 <br>
 
@@ -77,12 +73,10 @@ https://user-images.githubusercontent.com/95201149/207520427-9b3aad81-9bf3-4e14-
 
 ## **어려움을 겪었던 부분**
 
-<br>
-
 ### Vanilla Javascript 페이지 전환
 
 History API를 통해 Vanilla Javascript로 구현하기로 했습니다. 페이지가 많지 않고 고정되어 있는 UI 요소가 없는 서비스의 특성상, SSR로 보여주는 방식도 UX 면에서 자연스럽다고 판단했지만 Vanilla Javascript를 좀 더 응용해 보고 싶다는 마음에 이 방식을 채택했습니다.
-React에서 route를 사용하는 것과 같이, 요소에 route 속성을 직접 부여해서 해당 route에 따라 다른 페이지가 보이도록 했습니다. 이 때, `history.pushState`로 페이지 이동 없이 주소만 바꿔주었고, 검색시 입력한 정보를 전해주었습니다.
+React에서 route를 사용하는 것과 같이, 요소에 route 속성을 직접 부여해서 해당 route에 따라 다른 페이지가 보이도록 했습니다. 이 때, `history.pushState`로 페이지 이동 없이 주소만 바꿔주었고, 검색시 입력한 정보를 전해주었습니다. 유저가 뒤로가기 버튼을 누를 경우에 대비해서 `onpopstate` 이벤트를 이용해 페이지를 전환해줬습니다.
 
 <br>
 
