@@ -60,7 +60,7 @@ https://user-images.githubusercontent.com/95201149/207520427-9b3aad81-9bf3-4e14-
 1. Axios를 이용한 GET(simple request) 요청을 하는 방법
 2. Puppeteer로 크롤링 해서 다른 웹사이트의 HTML 파일을 가져오는 방법
 
-위 두 가지 방법이 모두 가능하지만, Puppeteer의 경우, SPA로 된 페이지도 크롤링 할 수 있기 때문에, 어떤 웹사이트를 크롤링 할 지 모르는 프로젝트의 특성상, 더 넓은 범위를 커버할 수 있는 Puppeteer를 쓰는 게 더 낫다고 판단했습니다.
+위 두 가지 방법이 모두 가능하지만, 어떤 웹사이트를 크롤링 할 지 모르는 이 프로젝트의 특성상, SPA로 된 페이지도 크롤링 할 수 있는 Puppeteer를 사용하는 게 더 낫다고 판단했습니다.
 
 <br>
 
@@ -68,7 +68,7 @@ https://user-images.githubusercontent.com/95201149/207520427-9b3aad81-9bf3-4e14-
 
 #### Client vs **Server** 에서 **Parsing**
 
-1. Client에서 하는 경우, 서버에서 받은 html 파일(innerHtml)을 Dom parser를 이용해, Dom 객체를 얻은 후, Parsing 하는 방법
+1. Client에서 하는 경우, 서버에서 받은 html 파일(innerHtml)을 Dom parser를 이용해서 Dom 객체를 얻은 후 Parsing 하는 방법
 2. Server에서 하는 경우, 크롤링 한 html 파일 Puppeteer 내 API를 이용해 데이터를 Parsing 하는 방법
 
 두 가지 방법 중, Puppeteer에서 원하는 데이터를 추출하는 것이 익숙지 않아, Client에서 하는 방법이 저에겐 더 구현하기 쉬웠습니다. 하지만, 어떤 사이트를 Parsing 해야 할지 모르기 때문에 꽤 무거운 작업이 될 수 있고, Puppeteer로 크롤링 한 HTML 파일 전부를 Client로 응답하는 것보다 서버에서 데이터를 Parsing 한 후, 원하는 데이터만 골라 바로 사용할 수 있는 형태로 응답을 보내는 것이 더 낫다고 생각했습니다.
@@ -81,15 +81,15 @@ https://user-images.githubusercontent.com/95201149/207520427-9b3aad81-9bf3-4e14-
 
 ### Vanilla Javascript 페이지 전환
 
-History API를 통해 Vanilla Javascript로 구현하기로 했습니다. 페이지가 많지 않고, 고정되어 있는 UI 요소가 없는 서비스의 특성상 SSR로 보여주는 방식도 UX 면에서 자연스럽다고 판단했지만 Vanilla Javascript를 좀 더 응용해 보고 싶다는 마음에 이 방식을 채택했습니다.
+History API를 통해 Vanilla Javascript로 구현하기로 했습니다. 페이지가 많지 않고 고정되어 있는 UI 요소가 없는 서비스의 특성상, SSR로 보여주는 방식도 UX 면에서 자연스럽다고 판단했지만 Vanilla Javascript를 좀 더 응용해 보고 싶다는 마음에 이 방식을 채택했습니다.
 React에서 route를 사용하는 것과 같이, 요소에 route 속성을 직접 부여해서 해당 route에 따라 다른 페이지가 보이도록 했습니다. 이 때, `history.pushState`로 페이지 이동 없이 주소만 바꿔주었고, 검색시 입력한 정보를 전해주었습니다.
 
 <br>
 
 ### Webpack 설정
 
-지금까지 편하게 써 온 Boilerplate을 안 썼기 때문에, 처음으로 개발 환경 세팅을 해야했습니다. webpack을 직접 설정을 하면서 글로만 봤던 Bundling하는 과정을 깊게 이해할 수 있었습니다. 많은 옵션때문에 초기 세팅이 까다롭게 느껴지기도 했지만, 다행히 Webpack 공식문서가 친절히 작성되어있어서 많은 도움을 받을 수 있었습니다.
-특히 코드를 수정할 때, Webpack에서 에러가 많이 발생해서 어려움을 겪기도 했지만, 오히려 수정한 코드에 영향을 미치는 Webpack 설정을 알 수 있었고, 자세히 이해할 수 있었습니다. 다음 프로젝트에서 다시 Boilerplate를 사용해 개발하더라도 기본으로 제공되는 설정을 수정해서 좀 더 원하는 방향으로 사용할 수 있다는 생각이 들었습니다.
+지금까지 편하게 써 온 Boilerplate을 안 썼기 때문에, 처음으로 개발 환경 세팅을 해야했습니다. webpack을 직접 설정을 하면서 글로만 봤던 Bundling하는 과정을 깊게 이해할 수 있었습니다. 많은 옵션때문에 초기 세팅이 까다롭게 느껴지기도 했지만, 다행히 Webpack 공식문서에서 많은 도움을 받을 수 있었습니다.
+특히 코드를 수정할 때 Webpack에서 에러가 많이 발생해서 어려움을 겪기도 했지만, 오히려 수정한 코드에 영향을 미치는 Webpack 설정을 알 수 있었습니다. 다음 프로젝트에서 다시 Boilerplate를 사용해 개발하더라도 기본으로 제공되는 설정을 수정해서 좀 더 원하는 방향으로 사용할 수 있다는 생각이 들었습니다.
 
 <br>
 
