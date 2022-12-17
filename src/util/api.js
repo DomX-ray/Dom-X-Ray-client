@@ -1,11 +1,10 @@
 import axios from "axios";
 
 export const getParsedData = async (pathName, searchUrl) => {
-  const server = process.env.SERVER_URL;
   const params = new URLSearchParams([["searchUrl", searchUrl]]);
 
   const response = await axios.get(
-    `${server}${pathName}`,
+    `${SERVER_URL}${pathName}`,
     { params },
     { withCredentials: true }
   );
