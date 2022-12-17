@@ -1,2 +1,7 @@
 import "./style/index.scss";
-import "./render";
+import "./controller/render";
+import { initialize } from "./controller/render";
+
+window.onload = () => {
+  initialize();
+};
