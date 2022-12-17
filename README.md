@@ -23,7 +23,7 @@ https://user-images.githubusercontent.com/95201149/207520427-9b3aad81-9bf3-4e14-
 ### **프로젝트 기간: 2022. 11.07 ~ 11. 27 (기획 1주, 개발 2주)**
 
 - 1주차: 프로젝트 기획
-  - 기술 검증, 아이디어 기획, Mockup 제작, 칸반 스케줄링
+  - 기술 검증, 아이디어 기획, [Mockup 제작](https://www.figma.com/file/9nff68ByrqbJ5IIkF98J7D/DomX-ray?node-id=0%3A1&t=UQq8iueec4QogWPc-1), [칸반 스케줄링](https://oval-handle-585.notion.site/91cc205e9e6c450392a77f156a549e1d?v=61ecd7e0c8f04208a15a5ef9cf64096d)
 - 2주차: 기능 개발
 - 3주차: 기능 개발 마무리 및 배포
 
