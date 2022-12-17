@@ -1,4 +1,4 @@
-import { handleClick } from "../render";
+import { handleSearchButtonClick } from "../controller/render";
 
 const HomeTemplate = () => {
   return `
@@ -19,31 +19,28 @@ const HomeTemplate = () => {
           />
         </svg>
       </div>
-      <h1>DomX-ray</h1>
+      <h1>DOMX-ray</h1>
     </div>
-    <form>
-      <label for="searchInput">
-        <input
-          type="url"
-          name="searchUrl"
-          id="searchUrl"
-          value=""
-          placeholder="https://www.google.com"
-          autocomplete="off"
-          required
-        />
-        <button type="click" class="submit-input" route="/visualization"></button>
-      </label>
+    <form class="search-box">
+      <input
+        type="url"
+        name="searchUrl"
+        id="searchUrl"
+        value=""
+        placeholder="https://www.google.com"
+        autocomplete="off"
+        required
+      />
+      <button type="click" id="home-search-button" route="/visualization"></button>
     </form>
   </div>
   `;
 };
 
 const HomeScript = () => {
-  const searchForm = document.querySelector("button");
-  searchForm.addEventListener("click", handleClick);
+  const searchForm = document.getElementById("home-search-button");
+  searchForm.addEventListener("click", handleSearchButtonClick);
 };
 
 const HomePage = { template: HomeTemplate, script: HomeScript };
-
 export default HomePage;

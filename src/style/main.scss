@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .logoImage {
@@ -26,13 +26,16 @@ h1 {
   padding-left: 2vh;
   font-family: "Josefin Slab", serif;
   font-style: normal;
-  font-size: 150px;
+  font-size: 110px;
 }
 
-form {
+.search-box {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 46vw;
+  min-width: 500px;
+  height: 30px;
 }
 
 #searchUrl {
@@ -40,8 +43,7 @@ form {
   justify-content: center;
   align-items: center;
   border: solid 8px rgba(194, 225, 109, 0.461);
-  width: 40vw;
-  min-width: 500px;
+  width: 100%;
   height: 100%;
   padding: 10px;
   font-size: 30px;

@@ -1,5 +1,6 @@
-import { getParsedData } from "../../util/api";
-import renderTree from "./tree";
+import { getParsedData } from "../model/api";
+import renderTree from "../controller/tree/tree";
+import { handleSearchButtonClick } from "../controller/render";
 
 const SubTemplate = () => {
   return `
@@ -8,11 +9,11 @@ const SubTemplate = () => {
       <svg width="50" height="60" viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M29.0278 60H21.0417V48.825H0L13.125 28.275H6.52778L25 0L43.4722 28.275H36.9444L50 48.825H29.0278V60ZM8.05556 44.325H21.1806H14.9306H35.0694H28.8889H42.0139H8.05556ZM8.05556 44.325H42.0139L28.8889 23.775H35.0694L25 8.325L14.9306 23.775H21.1806L8.05556 44.325Z" fill="#A7D81C"/>
       </svg>
-      <h1 class="title">Dom X-ray</h1>
-      <form class="search-form-box">
-        <input type="url" class="subPage-input" name="searchUrl" value="" placeholder="Search Url" autocomplete="off" required />
-        <button type="click" class="submit-input" route="/visualization"></button>
-      </form>
+      <h1 class="title">DOM X-ray</h1>
+      <div class="search-form-box">
+        <input type="url" id="subPage-input" name="searchUrl" value="" placeholder="Search Url" autocomplete="off" required />
+        <button type="click" class="sub-search-button" route="/visualization"></button>
+      </div>
     </div>
   </header>
   <div class="sub-main-container">
@@ -76,26 +77,16 @@ const SubTemplate = () => {
         </li>
         <li>
           <span class="tag-info-item">Contents</span>
-          <span class="tag-info-box"></span>
+          <span class="tag-info-box" id="textContent"></span>
         </li>
         <li>
           <span class="tag-info-item">Children</span>
           <span class="tag-info-box" id="childrenCount"></span>
         </li>
         <li style="display: list-item">
-          <details>
+          <details id="classToggle">
             <summary>Class Name</summary>
-              <li id="className">a</li>
-              <li>b</li>
-              <li>c</li>
-          </details>
-        </li>
-        <li style="display: list-item">
-          <details>
-            <summary>Attributes</summary>
-              <li id="attributes">a</li>
-              <li>b</li>
-              <li>c</li>
+              <li id="className"></li>
           </details>
         </li>
       </ul>
@@ -103,27 +94,21 @@ const SubTemplate = () => {
   </div>`;
 };
 
-const showSpinner = () => {
-  document.getElementsByClassName("loader")[0].style.display = "inline-block";
-};
-
-const hideSpinner = () => {
-  document.getElementsByClassName("loader")[0].style.display = "none";
-};
-
 const SubScript = async () => {
-  const { route, searchUrl } = window.history.state;
+  const showSpinner = () => {
+    document.getElementsByClassName("loader")[0].style.display = "inline-block";
+  };
 
+  const hideSpinner = () => {
+    document.getElementsByClassName("loader")[0].style.display = "none";
+  };
   showSpinner();
 
+  const { route, searchUrl } = window.history.state;
   const data = await getParsedData(route, searchUrl);
 
-  if (data) {
-    hideSpinner();
-  }
-
+  hideSpinner();
   renderTree(data);
-  //collapsibleTag();
 };
 
 const SubPage = { template: SubTemplate, script: SubScript };
