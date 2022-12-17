@@ -22,7 +22,7 @@ main {
   justify-content: center;
   padding-left: 10px;
   font-family: "Josefin Slab", serif;
-  font-size: 50px;
+  font-size: 45px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -38,7 +38,7 @@ main {
   padding-left: 30px;
 }
 
-input.subPage-input {
+#subPage-input {
   width: 70%;
   height: 60%;
   padding: 13px 30px;
@@ -64,11 +64,6 @@ input.subPage-input {
   flex-direction: column;
   padding-left: 50px;
   margin-top: 30px;
-}
-
-button {
-  border: none;
-  background-color: transparent;
 }
 
 .hierarchy-container {
